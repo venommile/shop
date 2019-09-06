@@ -28,7 +28,6 @@ class BaseMixin:
 		new_details=kwargs
 		print(request)
 		cart=get_cart(request)
-		print(request)
 		categories = Category.objects.all()
 		
 		context = {
@@ -39,9 +38,40 @@ class BaseMixin:
 		context.update(new_context)
 		
 		return render(request, self.__class__.template, context)
+
+class CartMixin:
+	template=None
+	def get(self,request):
+		cart=get_cart(request)
+		categories = Category.objects.all()
+		context = {
+			'cart': cart,
+			'categories': categories
+		}
+		return render(request, self.__class__.template, context)
+
+# class CartActionMixin(Cart):
+# 	def get(self,request,*args,**kwargs):
+# 		cart=get_cart(request)
+# 		product_slug=request.GET.get('product_slug')
+# 		context={'cart_total': cart.items.count(),
+# 		'cart_total_price': cart.cart_total,}
+# 		#ИСПРАВИТЬ!!!!
+# 		if self.__class__.__name__.lower()=='add_to_cart':
+# 			cart.add_to_cart(product_slug)
+# 		elif self.__class__.name__lower()=='remove_from_cart':
+# 			cart.remove_from_cart(product_slug)
+# 		reload_cart_cost(cart)
+# 		return JsonResponse(context)
 	# def view_object_function(*args,**kwa):
 	# 	pass
-		
+	# 	cart=get_cart(request)
+# 	product_slug=request.GET.get('product_slug')
+# 	#product = Product.objects.get(slug = product_slug)
+# 	cart.add_to_cart(product_slug)
+# 	reload_cart_cost(cart)
+# 	return JsonResponse({'cart_total': cart.items.count(),
+# 		'cart_total_price': cart.cart_total,})	
 # class CartActionMixin:
 
 

@@ -75,19 +75,30 @@ class CategoryView(BaseMixin,View):
 # 	return render(request, 'ecomapp/category.html', context)
 
 
-#Объединить cart_view,add_to_cart_view,remove_from_cart_view,
-#change_item_qty,checkout_view в Cart characteristics
 
-def cart_view(request):
-	cart=get_cart(request)
-	categories = Category.objects.all()
-	context = {
-		'cart': cart,
-		'categories': categories
-	}
-	return render(request, 'ecomapp/cart.html', context)
-
-
+#объединить в Cart
+class Cart(CartMixin,View):
+	template='ecomapp/cart.html'
+# def cart_view(request):
+# 	cart=get_cart(request)
+# 	categories = Category.objects.all()
+# 	context = {
+# 		'cart': cart,
+# 		'categories': categories
+# 	}
+# 	return render(request, 'ecomapp/cart.html', context)
+class Checkout(CartMixin,View):
+	template='ecomapp/checkout.html'
+# def checkout_view(request):
+# 	cart=get_cart(request)
+# 	categories = Category.objects.all()
+# 	context = {
+# 		'cart': cart,
+# 		'categories': categories
+# 	}
+# 	return render(request, 'ecomapp/checkout.html', context)
+#Объединить add_to_cart_view,remove_from_cart_view,
+#change_item_qty,checkout_view в Cart_actions
 def add_to_cart_view(request):
 	cart=get_cart(request)
 	product_slug=request.GET.get('product_slug')
@@ -118,14 +129,6 @@ def change_item_qty(request):
 		'cart_total_price': cart.cart_total})
 
 
-def checkout_view(request):
-	cart=get_cart(request)
-	categories = Category.objects.all()
-	context = {
-		'cart': cart,
-		'categories': categories
-	}
-	return render(request, 'ecomapp/checkout.html', context)
 
 #Объединить order_create_view,make_order_view в Order
 def order_create_view(request):

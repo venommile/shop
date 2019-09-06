@@ -17,7 +17,6 @@ import os
 import glob
 from django.utils import timezone
 
-
 def gen_slug(cls):
 
 	title=str(cls.title)
@@ -158,7 +157,11 @@ class Cart(models.Model):
 		cart_item.item_total=int(qty)* Decimal(cart_item.product.price)
 		cart_item.save()
 		#переделать в отдельную функцию
-		reload_cart_cost(cart)
+		new_cart_total = 0.00
+		for item in cart.items.all():
+			new_cart_total += float(item.item_total)
+		cart.cart_total = new_cart_total
+		cart.save()
 
 	def __str__(self):
 		return str(self.id)
