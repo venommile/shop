@@ -1,0 +1,12 @@
+Django
+django-crispy-forms
+django-model-utils
+django-notifications-hq
+jsonfield
+Pillow
+pkg-resources
+pytz
+six
+transliterate
+pytils
+django-grappelli
