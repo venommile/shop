@@ -21,6 +21,7 @@ import notifications
 
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('', include('ecomapp.urls')),
     #path('inbox/notifications/', include(notifications,namespace='notifications')),

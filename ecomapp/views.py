@@ -25,6 +25,7 @@ from ecomapp.utilits import *
 
 class BaseView(BaseMixin,View):
 	template='ecomapp/base.html'
+	#доработать!!!!!!!!!!!!!!
 	def view_object_function(*args,**kwargs):
 		products = Product.objects.all()
 		new_context={'products':products}
@@ -98,25 +99,35 @@ class Checkout(CartMixin,View):
 # 	}
 # 	return render(request, 'ecomapp/checkout.html', context)
 #Объединить add_to_cart_view,remove_from_cart_view,
-#change_item_qty,checkout_view в Cart_actions
-def add_to_cart_view(request):
-	cart=get_cart(request)
-	product_slug=request.GET.get('product_slug')
-	#product = Product.objects.get(slug = product_slug)
-	cart.add_to_cart(product_slug)
-	reload_cart_cost(cart)
-	return JsonResponse({'cart_total': cart.items.count(),
-		'cart_total_price': cart.cart_total,})
+#change_item_qty,checkout_view в Cart_actions'
+class AddToCart(CartActionsMixin,View):
+	def action(garbage,product_slug,cart):
+		cart.add_to_cart(product_slug)
+		reload_cart_cost(cart)
+		return cart
+# def add_to_cart_view(request):
+# 	cart=get_cart(request)
+# 	product_slug=request.GET.get('product_slug')
+# 	#product = Product.objects.get(slug = product_slug)
+# 	cart.add_to_cart(product_slug)
+# 	reload_cart_cost(cart)
+# 	return JsonResponse({'cart_total': cart.items.count(),
+# 		'cart_total_price': cart.cart_total,})
+class RemoveFromCart(CartActionsMixin,View):
+	def action(garbage,product_slug,cart):
+		cart.remove_from_cart(product_slug)
+		reload_cart_cost(cart)
+		return cart
 
-def remove_from_cart_view(request):
-	cart=get_cart(request)
 
-	product_slug=request.GET.get('product_slug')
-	cart.remove_from_cart(product_slug)
-	reload_cart_cost(cart)
-	return JsonResponse({'cart_total': cart.items.count(),
-		'cart_total_price': cart.cart_total,})
+# def remove_from_cart_view(request):
+# 	cart=get_cart(request)
 
+# 	product_slug=request.GET.get('product_slug')
+# 	cart.remove_from_cart(product_slug)
+# 	reload_cart_cost(cart)
+# 	return JsonResponse({'cart_total': cart.items.count(),
+# 		'cart_total_price': cart.cart_total,})
 def change_item_qty(request):
 	cart=get_cart(request)
 	qty = request.GET.get('qty')
@@ -129,8 +140,6 @@ def change_item_qty(request):
 		'cart_total_price': cart.cart_total})
 
 
-
-#Объединить order_create_view,make_order_view в Order
 def order_create_view(request):
 	cart=get_cart(request)
 	form = OrderForm(request.POST or None)
@@ -174,7 +183,6 @@ def make_order_view(request):
 
 		return HttpResponseRedirect(reverse('thank_you'))
 	return render(request, 'ecomapp/order.html', {'categories': categories})
-#account_view,registration_view,login_view в User
 def account_view(request):
 	try:
 		order = Order.objects.filter(user=request.user).order_by('-id')
