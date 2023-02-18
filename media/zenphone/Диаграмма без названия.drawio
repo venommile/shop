@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-18T10:50:40.262Z" agent="5.0 (Windows)" etag="GyaYgcqruWB0Psp41BLs" version="20.8.20" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-18T10:56:31.423Z" agent="5.0 (Windows)" etag="J7D6BjgnPvQMaHfC49Cq" version="20.8.20" type="github">
   <diagram name="Страница 1" id="37w9MG5sr8IWQClEOfB6">
     <mxGraphModel dx="2049" dy="1117" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -31,9 +31,6 @@
         <mxCell id="ZxZWVLrvtYTRDe_x5lBx-14" value="покупка дополнительных минут" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="648" y="1010" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="ZxZWVLrvtYTRDe_x5lBx-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZxZWVLrvtYTRDe_x5lBx-17" target="ZxZWVLrvtYTRDe_x5lBx-24">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="ZxZWVLrvtYTRDe_x5lBx-17" value="Активация пользователя с esim" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="590" y="610" width="120" height="60" as="geometry" />
         </mxCell>
@@ -57,9 +54,6 @@
         </mxCell>
         <mxCell id="ZxZWVLrvtYTRDe_x5lBx-22" value="проведение тестового звонка для активации" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="600" y="830" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="ZxZWVLrvtYTRDe_x5lBx-24" value="проведение тестового звонка для активации" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="740" y="610" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ZxZWVLrvtYTRDe_x5lBx-26" value="работа мобильной симкарты" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="260" y="1220" width="120" height="60" as="geometry" />
@@ -186,7 +180,7 @@
             <mxPoint x="253" y="1830" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZxZWVLrvtYTRDe_x5lBx-65" value="настройка оборудованмя" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ZxZWVLrvtYTRDe_x5lBx-65" value="настройка оборудования" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="410.5" y="1670" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ZxZWVLrvtYTRDe_x5lBx-66" value="настройка ПО" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
